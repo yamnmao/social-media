@@ -52,7 +52,7 @@ export const Post =(props:postProps)=>{
    
     return(
         <div>
-            <div className="title">
+            <div className="flex gap-4 items-center justify-end">
                 {postProps.title}
             </div>
             <div className="header">

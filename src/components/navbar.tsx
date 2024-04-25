@@ -2,6 +2,7 @@ import{Link} from 'react-router-dom'
 import {auth} from "../config/firebase"
 import {signOut} from "firebase/auth"
 import {useAuthState} from 'react-firebase-hooks/auth'
+
 export const Navbar = ()=>{
     const [user,loading, error] = useAuthState(auth);
 
