@@ -15,3 +15,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.main-content {
+  margin-left: 16rem; /* Adjust according to navbar width */
+  flex: 1;
+  padding: 1rem; /* p-4 */
+}
+.title{
+
+}

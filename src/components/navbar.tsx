@@ -22,7 +22,6 @@ export const Navbar = ()=>{
                 <>
                 <p>
                     {auth.currentUser?.displayName}
-                    {user?.displayName}
                 </p>
                     <img src={auth.currentUser?.photoURL || ""}/>
                     {/**auth.currentUser?.photoURL: The ?. is the optional chaining operator in JavaScript (and by extension, TypeScript),

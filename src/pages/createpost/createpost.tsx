@@ -2,7 +2,7 @@ import{CreateForm} from './form'
 
 export const CreatePost =()=>{
     return(
-        <div>
+        <div className='main-content'>
             <CreateForm/>
         </div>
     )
