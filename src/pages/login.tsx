@@ -9,10 +9,7 @@ export const Login = ()=>{
        console.log(result);
        navigate("/");//after login, back to home page
     };
-    return <div>
-    <p>
-        Sign In With Google
-    </p>
+    return <div className='main-content'>
     <button onClick={signInwithGoogle}>sign in with google</button>
 </div>
 }
