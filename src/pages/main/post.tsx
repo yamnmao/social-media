@@ -18,8 +18,8 @@ interface Like {
 //在typescript里面则是export const Post = ({ postProps }: { postProps: PostProps }) 
 export const Post =(props:postProps)=>{
      //解构赋值，原本的写法是props.postProps
-    const {postProps} =props;
-    const [user] = useAuthState(auth);
+    const {postProps} =props;//When you destructure an object, you use curly braces {}.
+    const [user] = useAuthState(auth);//When you destructure an array, you use square brackets []. 
     const likesRef = collection(db,"likes");
 
     //setState

@@ -20,19 +20,33 @@ export const Main = ()=>{
     const [postsList, setPostsList] = useState<Post[] | null >(null);
     const postsRef = collection(db,"posts");//get posts collection for firebase store
 
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
     const getPosts = async() =>{
+        setLoading(true);
+        setError(null);
+        try{
         const data = await getDocs(postsRef);//get Posts db
+        console.log(data.docs.map((doc)=>({
+            ...doc.data()
+            })) 
+        );
         setPostsList(data.docs.map((doc)=>({
             ...doc.data(),postid:doc.id
             })) as Post[]//cast data as Post type
             //这个interface里面的名字要和doc里面的field name一样才能cast，比如一开始userid在
             //interface里面是userId，然后后面的propsPost.userId就render不出来
         );
-        console.log(data.docs.map((doc)=>({
-            ...doc.data(),postid:doc.id
-            })) as Post[]
-        );
+         }catch(err){
+            setError("Failed to load posts. Please try again later.");
+            console.error("Error fetching posts:", err);
+         }finally{
+            setLoading(false);
+         }
+       
     };
+
     useEffect(()=>{
         getPosts();
     },[])//put a empty array over here, implement getPosts() and then mount.
@@ -43,6 +57,8 @@ export const Main = ()=>{
    //props called postProps 
    return (
     <div>
+         {loading && <p>Loading posts...</p>}
+         {error && <p>{error}</p>}
         {postsList?.map((postData)=>(
         <Post postProps={postData}/>
         ))}

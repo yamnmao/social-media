@@ -42,6 +42,7 @@ export const CreateForm=()=>{
     };
 
     return(
+        
     <form className='main-content' onSubmit={handleSubmit(onCreatePost)}>
         <input placeholder="Title"{...register("title")}/>
         <p>{errors.title?.message}</p>
